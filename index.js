@@ -1,5 +1,5 @@
 // add bot to server url:
-// https://discordapp.com/api/oauth2/authorize?client_id=504441836887212034&scope=bot&permissions=8
+// https://discordapp.com/api/oauth2/authorize?client_id=504441836887212034&scope=bot&permissions=2146958839
 const Discord = require('discord.js');
 const config = require("./botconfig.json");
 const bot = new Discord.Client();
