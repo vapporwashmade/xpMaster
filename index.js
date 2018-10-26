@@ -10,11 +10,12 @@ bot.on("message", function (message) {
 		return;
 	}
 	var args = message.content.split(' ');
-	var command = args[1].toLowerCase();
-	if (message.author.bot || args.indexOf(config.prefix) !== 0) {
+	if (message.author.bot || args.indexOf(config.prefix) !== 0 || args.length === 1) {
 		return;
 	}
+	var command = args[1].toLowerCase();
 	if (command === 'say') {
+		console.log(args[2]);
 		if (args[2] === undefined) {
 			message.channel.send('Error: Need something to say');
 			return;
