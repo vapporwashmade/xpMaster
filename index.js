@@ -7,6 +7,7 @@ const token = 'NTA0NDQxODM2ODg3MjEyMDM0.DrFXPA.9oSQpWKSRMKJToxM3AfjwxnkmsU';
 bot.on("message", function (message) {
 	if (message.content.toLowerCase() === 'hi') {
 		message.reply("Hello, how are you doing?");
+		return;
 	}
 	var args = message.content.split(' ');
 	var command = args[1].toLowerCase();
