@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/vapporwashmade/xpMaster#readme",
   "dependencies": {
-    "discord.js-commando": "^0.10.0"
+    "discord.js": "^11.4.2",
+    "discord.js-commando": "^0.10.0",
+    "hey": "^0.1.2"
   }
 }

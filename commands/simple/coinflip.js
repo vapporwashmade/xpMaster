@@ -6,16 +6,24 @@ class CoinFlipCommand extends commando.Command {
 			name:'coinflip',
 			group:'simple',
 			memberName:'flip',
-			description:'Flips a fair coin, landing on Heads or Tails.'
+			description:'Flips a coin, landing on Heads or Tails.'
 		});
 	}
 
-	async run(message, args) {
-		var chance = Math.floor(Math.random()*2);
-		if (chance === 0) {
-			message.channel.sendMessage('The coin landed on heads!');
+	run(message, args) {
+		var weighted = args[2];
+		if (weighted > 100 || weighted < 0 || isNaN(Number(weighted))) {
+			message.channel.send('Must be a valid number from 0 to 100!');
+			return;
+		}
+		if (weighted === undefined) {
+			weighted = 50;
+		}
+		var chance = Math.floor(Math.random()*100);
+		if (chance <= weighted) {
+			message.channel.send('The coin landed on heads!');
 		} else {
-			message.channel.sendMessage('The coin landed on tails!');
+			message.channel.send('The coin landed on tails!');
 		}
 	}
 }
