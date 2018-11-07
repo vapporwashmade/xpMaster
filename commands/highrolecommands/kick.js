@@ -13,7 +13,7 @@ class KickCommand extends commando.Command {
 
 	run(message, args) {
 		if (!message.member.hasPermission("MANAGE_MESSAGES")) {
-			message.channel.send('Must be of rank \'Admin\' or higher!');
+			message.channel.send('Must be of rank \'Admin\'!');
 			return;
 		}
 		if (args[3] === undefined) {

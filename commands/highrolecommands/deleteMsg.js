@@ -11,8 +11,8 @@ class DeleteMsgCommand extends commando.Command {
 	}
 
 	async run(message, args) {
-		if (!message.member.roles.find('name', 'respectable')) {
-			message.channel.send('Must be of rank \'Respectable\' or higher!');
+		if (!message.member.hasPermission('MANAGE_MESSAGES')) {
+			message.channel.send('Must be of rank \'Admin\'!');
 			return;
 		}
 		if (args[2] === undefined) {
