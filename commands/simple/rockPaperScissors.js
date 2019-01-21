@@ -11,7 +11,7 @@ class RockPaperScissors extends commando.Command {
 	}
 
 	run(message, args) {
-		if (args[2] !== 'r' && args[2] !== 'rock' && args[2] !== 'p' && args[2] !== 'paper' && args[2] !== 's' && args[2] !== 'scissors') {
+		if (args[0] !== 'r' && args[0] !== 'rock' && args[0] !== 'p' && args[0] !== 'paper' && args[0] !== 's' && args[0] !== 'scissors') {
 			message.channel.send('Need a valid choice: r for rock, p for paper, or s for scissors!');
 			return;
 		}
@@ -20,9 +20,9 @@ class RockPaperScissors extends commando.Command {
 		};
 		var cpuChoice = Object.keys(choices)[Math.floor(Math.random()*3)];
 		var usrChoice = '';
-		if (args[2].startsWith('r')) {
+		if (args[0].startsWith('r')) {
 			usrChoice = 'rock';
-		} else if (args[2].startsWith('p')) {
+		} else if (args[0].startsWith('p')) {
 			usrChoice = 'paper';
 		} else {
 			usrChoice = 'scissors';

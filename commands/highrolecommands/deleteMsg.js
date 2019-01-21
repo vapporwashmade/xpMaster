@@ -15,14 +15,14 @@ class DeleteMsgCommand extends commando.Command {
 			message.channel.send('Must be of rank \'Admin\'!');
 			return;
 		}
-		if (args[2] === undefined) {
+		if (args[0] === undefined) {
 			message.delete();
 		} else {
-			if (isNaN(Number(args[2]))) {
+			if (isNaN(Number(args[0]))) {
 				message.channel.send('Please use a number!');
 				return;
 			}
-			const fetched = await message.channel.fetchMessages({limit: args[2]});
+			const fetched = await message.channel.fetchMessages({limit: args[0]});
 			console.log('Deleting ' + fetched.size + ' messages');
 			message.channel.bulkDelete(fetched)
 				.catch(error => message.channel.send(`Error: ${error}`));

@@ -11,7 +11,7 @@ class EightBallCommand extends commando.Command {
 	}
 
 	run(message, args) {
-		if (args[2] === undefined) {
+		if (args[0] === undefined) {
 			message.channel.send('NEED A QUESTION TO ASK, ' + message.author);
 			return;
 		}

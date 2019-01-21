@@ -11,13 +11,12 @@ class DiceRollCommand extends commando.Command {
 	}
 
 	run(message, args) {
-		var sides = args[2];
-		if (isNaN(Number(sides))) {
-			message.channel.send('The argument must be a number!');
-			return;
-		}
+		var sides = args[0];
 		if (sides === undefined) {
 			sides = 6;
+		} else if (isNaN(Number(sides))) {
+			message.channel.send('The argument must be a number!');
+			return;
 		}
 		var chance = Math.floor(Math.random()*sides)+1;
 		message.channel.send('The die landed on ' + chance + '!');

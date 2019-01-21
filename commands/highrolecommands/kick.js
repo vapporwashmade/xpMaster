@@ -16,11 +16,11 @@ class KickCommand extends commando.Command {
 			message.channel.send('Must be of rank \'Admin\'!');
 			return;
 		}
-		if (args[3] === undefined) {
+		if (args[1] === undefined) {
 			message.channel.send("Need a reason!");
 			return;
 		}
-		let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[2]));
+		let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 		if(!kUser){
 			return message.channel.send("Can't find user!");
 		}
