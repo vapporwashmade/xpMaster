@@ -3,6 +3,7 @@
 const Commando = require('discord.js-commando');
 const config = require("./botconfig.json");
 const bot = new Commando.Client();
+const database = require('./data.js');
 
 bot.registry.registerGroup('simple', 'Simple');
 bot.registry.registerGroup('highrolecommands', 'High Role Commands');
@@ -11,7 +12,6 @@ bot.registry.registerCommandsIn(__dirname + '/commands');
 
 bot.on("message", function (message) {
 	var args = message.content.split(' ');
-	console.log(args);
 	if (message.author.bot || args.indexOf(config.prefix) !== 0 || args.length === 1) {
 		return;
 	}
@@ -23,6 +23,8 @@ bot.on("message", function (message) {
 		}
 		config.prefix = args[2];
 	}
+	args = args.slice(2);
+	console.log(args);
 	var cmds = {
 		say:'simple/say.js',
 		coinflip:'simple/coinflip.js',
@@ -30,12 +32,15 @@ bot.on("message", function (message) {
 		deletemsg:'highrolecommands/deleteMsg.js',
 		kick:'highrolecommands/kick.js',
 		rps:'simple/rockPaperScissors.js',
-		'8ball':'simple/8ball.js'
+		'8ball':'simple/8ball.js',
+		choose:'simple/choose.js'
 	};
 	if (cmds.hasOwnProperty(command.toLowerCase())) {
 		var x = require('./commands/'+cmds[command]);
 		var newClass = new x(bot);
 		newClass.run(message, args);
+	} else {
+		message.channel.send('Cannot find the command \'' + command + '\'!');
 	}
 });
 
