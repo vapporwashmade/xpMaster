@@ -3,7 +3,7 @@
 const Commando = require('discord.js-commando');
 const config = require("./botconfig.json");
 const bot = new Commando.Client();
-const database = require('./data.js');
+const mysql = require('mysql');
 
 bot.registry.registerGroup('simple', 'Simple');
 bot.registry.registerGroup('highrolecommands', 'High Role Commands');
